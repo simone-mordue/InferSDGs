@@ -1,5 +1,5 @@
-install.packages("remotes")
-remotes::install_github("agoldst/litdata")
+#remotes::install_github("agoldst/litdata",
+#                         INSTALL_opts=c("--no-multiarch"))
 library(mallet)
 library(pdftools)
 library(rJava)
