@@ -1,4 +1,5 @@
-
+install.packages("remotes")
+remotes::install_github("agoldst/litdata")
 library(mallet)
 library(pdftools)
 library(rJava)
@@ -12,7 +13,7 @@ library(ggplot2)
 source("functions.R")
 
 ### read in text
-newtext<-readtext("C:/mallet_R/PDF_tests/*txt")
+newtext<-readtext("./PDF_tests/*txt")
 
 ### load instance list from topic model
 sdg.instances1<-read_mallet_instances("sdg.instances.mallet")
