@@ -1,9 +1,12 @@
-#remotes::install_github("agoldst/litdata",
-#                         INSTALL_opts=c("--no-multiarch"))
+remotes::install_github("agoldst/litdata",
+                     INSTALL_opts=c("--no-multiarch"), force = TRUE)
+
 library(mallet)
 library(pdftools)
 library(rJava)
 library(readtext)
+library(xfun)
+library(rmarkdown)
 library(litdata)
 library(dplyr)
 library(reshape2)
@@ -13,10 +16,10 @@ library(ggplot2)
 source("functions.R")
 
 ### read in text
-newtext<-readtext("./PDF_tests/*txt")
+newtext<-readtext("./PDF_tests/*pdf")
 
 ### load instance list from topic model
-sdg.instances1<-read_mallet_instances("sdg.instances.mallet")
+sdg.instances1<-litdata::read_mallet_instances("sdg.instances.mallet")
 inf <- read_inferencer("inf.mallet")
 
 ### find matching instances (words) from new text and topic model
@@ -68,7 +71,8 @@ colnames(mean)<-c("ID", "Goal", "Value")
 mean$ID<-"Mean"
 
 all<-rbind(each, mean)
-all$colour<-rep(colours$Colour, 3)
+n<-nrow(newtext)
+all$colour<-rep(colours$Colour, n+1)
 
 ggplot(all, aes(y=Value, x=ID)) + 
   geom_col(fill=all$colour)+
