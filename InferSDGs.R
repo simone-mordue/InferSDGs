@@ -77,6 +77,4 @@ ggplot(all, aes(y=Value, x=ID)) +
   xlab("Mean SDGs")+
   ylab("Proportion fit")
 
-
-
-
+write.csv(all, "./SDG.csv")
