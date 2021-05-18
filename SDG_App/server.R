@@ -14,15 +14,13 @@ data<-read.csv("SDG.csv")
 shinyServer(function(input, output) {
 
     output$distPlot <- renderPlot({
-
-        # generate bins based on input$bins from ui.R
-        x    <- faithful[, 2]
-        bins <- seq(min(x), max(x), length.out = input$bins + 1)
-
-        # draw the histogram with the specified number of bins
-        ggplot(data, aes(Value)) + 
-            geom_histogram()
+        ggplot(data, aes(y=Value, x=ID)) + 
+            geom_col(fill=data$colour)+
+            theme_classic()+
+            xlab("Mean SDGs")+
+            ylab("Proportion fit")
 
     })
 
 })
+
