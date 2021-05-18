@@ -8,7 +8,8 @@
 #
 
 library(shiny)
-data<-read.csv("SDG.csv")
+source("Infer.R")
+data<-all
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
