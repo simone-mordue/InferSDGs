@@ -8,6 +8,7 @@
 #
 
 library(shiny)
+data<-read.csv("SDG.csv")
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
@@ -19,7 +20,7 @@ shinyServer(function(input, output) {
         bins <- seq(min(x), max(x), length.out = input$bins + 1)
 
         # draw the histogram with the specified number of bins
-        ggplot(faithful, aes(x)) + 
+        ggplot(data, aes(Value)) + 
             geom_histogram()
 
     })
