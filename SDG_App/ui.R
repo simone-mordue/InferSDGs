@@ -19,7 +19,12 @@ shinyUI(fluidPage(
 
         # Show a plot of the generated distribution
         mainPanel(
-            plotOutput("distPlot")
+            plotOutput("distPlot"),
+            fileInput(inputId = "upload",
+                      label = "Choose pdf files",
+                      accept = ".pdf",
+                      multiple = TRUE),
+            tableOutput("files")
         )
     )
 )

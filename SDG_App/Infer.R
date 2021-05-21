@@ -13,7 +13,7 @@ library(ggplot2)
 source("functions.R")
 
 ### read in text
-newtext<-readtext("./PDF_tests/*pdf")
+#newtext<-readtext("./PDF_tests/*pdf")
 
 ### load instance list from topic model
 sdg.instances1<-read_mallet_instances("sdg.instances.mallet")

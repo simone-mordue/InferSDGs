@@ -13,6 +13,7 @@ data<-all
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
+    
 
     output$distPlot <- renderPlot({
         ggplot(data, aes(y=Value, x=ID)) + 
@@ -22,6 +23,8 @@ shinyServer(function(input, output) {
             ylab("Proportion fit")
 
     })
+    output$files <- renderTable(input$upload)
+    
 
 })
 
