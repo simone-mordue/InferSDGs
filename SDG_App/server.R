@@ -6,6 +6,8 @@
 #
 #    http://shiny.rstudio.com/
 #
+library(litdata)
+library(readtext)
 library(pdftools)
 library(mallet)
 library(shiny)
