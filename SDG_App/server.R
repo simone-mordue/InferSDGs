@@ -6,7 +6,7 @@
 #
 #    http://shiny.rstudio.com/
 #
-
+library(mallet)
 library(shiny)
 source("Infer.R")
 data<-all
