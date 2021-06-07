@@ -6,6 +6,7 @@
 #
 #    http://shiny.rstudio.com/
 #
+library(pdftools)
 library(mallet)
 library(shiny)
 source("Infer.R")
