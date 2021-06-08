@@ -11,13 +11,14 @@ library(readtext)
 library(pdftools)
 library(mallet)
 library(shiny)
-source("Infer.R")
-data<-all
+
+
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
     
-
+    source("functions.R")
+    
     output$distPlot <- renderPlot({
         ggplot(data, aes(y=Value, x=ID)) + 
             geom_col(fill=data$colour)+
