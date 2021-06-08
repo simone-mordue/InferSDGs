@@ -21,10 +21,11 @@ shinyUI(fluidPage(
         mainPanel(
             plotOutput("distPlot"),
             fileInput(inputId = "upload",
-                      label = "Choose pdf files",
-                      accept = ".pdf",
+                      label = "Choose txt files",
+                      accept = ".txt",
                       multiple = TRUE),
-            tableOutput("files")
+            tableOutput("files"),
+            textOutput("text")
         )
     )
 )

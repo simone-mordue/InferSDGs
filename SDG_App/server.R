@@ -16,19 +16,18 @@ library(shiny)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
-    
-    source("functions.R")
-    
-    output$distPlot <- renderPlot({
-        ggplot(data, aes(y=Value, x=ID)) + 
-            geom_col(fill=data$colour)+
-            theme_classic()+
-            xlab("Mean SDGs")+
-            ylab("Proportion fit")
-
+    observe({
+        file1 = input$upload
+        
+        if (is.null(file1)){
+            return(NULL)
+        }
+        data1 = readtext(file1$datapath)
+        output$text <- renderText({
+            writeLines(data1[,2])
+        })
     })
-    output$files <- renderTable(input$upload)
     
-
 })
+
 
