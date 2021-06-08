@@ -75,7 +75,8 @@ shinyServer(function(input, output) {
             mean$ID<-"Mean"
             
             all<-rbind(each, mean)
-            all$colour<-rep(colours$Colour, 3)
+            n<-nrow(newtext)
+            all$colour<-rep(colours$Colour, n+1)
             
           G<-ggplot(all, aes(y=Value, x=ID)) + 
                 geom_col(fill=all$colour)+
