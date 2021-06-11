@@ -11,6 +11,8 @@ library(readtext)
 library(pdftools)
 library(mallet)
 library(shiny)
+library(dplyr)
+library(reshape2)
 
 source("functions.R")
 sdg.instances1<-read_mallet_instances("sdg.instances.mallet")
