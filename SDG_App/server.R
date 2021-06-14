@@ -25,12 +25,13 @@ shinyServer(function(input, output) {
         
         if (is.null(file1)){
             return(NULL)
+            
         }
-        data1 = readtext(file1$datapath)
-        output$text <- renderText({
-            writeLines(data1[,2])})
+        data1 = readtext(file1$datapath, row.names = 1)
             output$distPlot<-renderPlot({
                 newtext<-data1
+                inFileName = input$upload$name
+                
             
             com<-compatible_instances(newtext$doc_id, newtext$text, sdg.instances1)
             topics<-infer_topics(inf, com)
@@ -51,7 +52,7 @@ shinyServer(function(input, output) {
                                       "Life Below Water", "Gender Equality", "Affordable Energy",
                                       "Climate Action")                 
             
-            rownames(output)<-c(newtext$doc_id)
+            rownames(output)<-c(inFileName)
             
             data <- apply(output, 1, function(output) output/ sum(output, na.rm = TRUE))
             data <- t(data)

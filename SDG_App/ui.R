@@ -25,7 +25,6 @@ shinyUI(fluidPage(
                       accept = ".pdf",
                       multiple = TRUE),
             tableOutput("files"),
-            textOutput("text")
         )
     )
 )
