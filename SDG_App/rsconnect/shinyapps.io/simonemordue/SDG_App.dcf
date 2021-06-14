@@ -1,0 +1,14 @@
+name: SDG_App
+title: SDG_App
+username:
+account: simonemordue
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4268464
+bundleId: 4713993
+url: https://simonemordue.shinyapps.io/SDG_App/
+when: 1623665560.42231
+lastSyncTime: 1623665560.42233
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: PDF_tests/marine.pdf|PDF_tests/Marine.txt|PDF_tests/poverty.pdf|PDF_tests/Poverty.txt|tests/shinytest/mytest2.R|tests/shinytest.R

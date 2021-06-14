@@ -1,12 +1,17 @@
-#
-# This is the server logic of a Shiny web application. You can run the
-# application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
+library(litdata)
+library(rJava)
+library(readtext)
+library(pdftools)
+library(mallet)
+library(shiny)
+library(dplyr)
+library(reshape2)
+library(debugme)
+
+
 if(!require('pacman'))install.packages('pacman')
 pacman::p_load(shiny,devtools, litdata, readtext, pdftools, mallet, ggplot2)
+
 
 
 source("functions.R")
