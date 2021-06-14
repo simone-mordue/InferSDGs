@@ -6,7 +6,10 @@
 #
 #    http://shiny.rstudio.com/
 #
+
+devtools::install_github("agoldst/litdata")
 library(litdata)
+library(rJava)
 library(readtext)
 library(pdftools)
 library(mallet)
