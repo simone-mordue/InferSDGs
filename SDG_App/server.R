@@ -5,12 +5,9 @@
 # Find out more about building applications with Shiny here:
 #
 #    http://shiny.rstudio.com/
-#
-library(litdata)
-library(readtext)
-library(pdftools)
-library(mallet)
-library(shiny)
+if(!require('pacman'))install.packages('pacman')
+pacman::p_load(shiny,devtools, litdata, readtext, pdftools, mallet, ggplot2)
+
 
 source("functions.R")
 sdg.instances1<-read_mallet_instances("sdg.instances.mallet")
