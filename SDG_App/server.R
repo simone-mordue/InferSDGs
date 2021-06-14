@@ -1,4 +1,3 @@
-
 library(litdata)
 library(rJava)
 library(readtext)
@@ -8,6 +7,11 @@ library(shiny)
 library(dplyr)
 library(reshape2)
 library(debugme)
+
+
+if(!require('pacman'))install.packages('pacman')
+pacman::p_load(shiny,devtools, litdata, readtext, pdftools, mallet, ggplot2)
+
 
 
 source("functions.R")
