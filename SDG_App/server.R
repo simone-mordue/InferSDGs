@@ -8,7 +8,6 @@ library(dplyr)
 library(reshape2)
 library(debugme)
 
-
 if(!require('pacman'))install.packages('pacman')
 pacman::p_load(shiny,devtools, litdata, readtext, pdftools, mallet, ggplot2)
 
@@ -20,10 +19,15 @@ inf <- read_inferencer("inf.mallet")
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
-    observe({
+    observeEvent(input$upload, {
         file1 = input$upload
         
         if (is.null(file1)){
+            return(NULL)
+        }
+        if (nrow(file1) == 1){
+            showModal(modalDialog(title = "Error: insufficient documents",
+                       "Please select 2 or more txt or pdf files"))
             return(NULL)
         }
         data1 = readtext(file1$datapath)
@@ -66,6 +70,7 @@ shinyServer(function(input, output) {
             
             # 4.8 read in SDG colour chart
             colours<-read.csv("SDGcolours.csv")
+            rownames(Finaltable) <- file1$name
             Mean.table<-colMeans(Finaltable)
             Mean.table<-as.data.frame(Mean.table)
             Mean.table<-t(Mean.table)
